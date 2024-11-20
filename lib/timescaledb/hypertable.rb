@@ -51,7 +51,7 @@ module Timescaledb
 
     private
     def struct_from(sql)
-      self.class.connection.execute(sql).map(&OpenStruct.method(:new))
+      self.class.connection.execute(sql).map(&Struct.method(:new))
     end
   end
 end

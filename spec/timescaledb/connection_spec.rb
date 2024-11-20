@@ -28,14 +28,14 @@ RSpec.describe Timescaledb do
       let(:sql) { "select 1 as one" }
       subject(:result) { connection.query_first(sql) }
 
-      it { expect(result).to be_a(OpenStruct) }
+      it { expect(result).to be_a(Struct) }
     end
 
     describe '#query' do
       let(:sql) { "select 1 as one" }
       subject(:result) { connection.query(sql) }
 
-      it { expect(result).to eq([OpenStruct.new({"one" => "1"})]) }
+      it { expect(result).to eq([Struct.new({"one" => "1"})]) }
     end
   end
 end

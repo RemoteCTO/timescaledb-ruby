@@ -14,16 +14,16 @@ module Timescaledb
 
     # @param [String] query The SQL raw query.
     # @param [Array] params The SQL query parameters.
-    # @return [Array<OpenStruct>] The SQL result.
+    # @return [Array<Struct>] The SQL result.
     def query(query, params = [])
       query = params.empty? ? connection.exec(query) : connection.exec_params(query, params)
 
-      query.map(&OpenStruct.method(:new))
+      query.map(&Struct.method(:new))
     end
 
     # @param [String] query The SQL raw query.
     # @param [Array] params The SQL query parameters.
-    # @return [OpenStruct] The first SQL result.
+    # @return [Struct] The first SQL result.
     def query_first(query, params = [])
       query(query, params).first
     end
