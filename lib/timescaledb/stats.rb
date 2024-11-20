@@ -4,7 +4,7 @@ require_relative './stats/job_stats'
 
 module Timescaledb
   class Stats
-    # @param [Array<OpenStruct>] hypertables The list of hypertables.
+    # @param [Array<Struct>] hypertables The list of hypertables.
     # @param [Timescaledb:Connection] connection The PG connection.
     def initialize(hypertables = [], connection = Timescaledb.connection)
       @hypertables = hypertables
